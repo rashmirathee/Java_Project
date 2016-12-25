@@ -44,7 +44,7 @@ public class MusicTeacherDAO
 		         {  
 		        	   
 
-		               String sql = "select TechId from music_school_teacher order by TechId  asc limit 1;";  
+		               String sql = "select max(TechId) from music_school_teacher;";  
 
 		                PreparedStatement pst = con.prepareStatement(sql);  
 		                ResultSet rs = pst.executeQuery() ;  
@@ -67,4 +67,4 @@ public class MusicTeacherDAO
 }
 }
 
-
+　
