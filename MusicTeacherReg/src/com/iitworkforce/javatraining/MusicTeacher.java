@@ -1,7 +1,11 @@
 package com.iitworkforce.javatraining;
 
+
 public class MusicTeacher
 {
+	
+	// Varaibles are always private
+	// Please don't initialize instance varaibles. 
 	String fname="";
 	String lname="";
 	String musictype="";
