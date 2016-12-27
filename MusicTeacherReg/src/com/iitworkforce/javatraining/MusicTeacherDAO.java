@@ -5,7 +5,8 @@ import com.iitworkforce.javatraining.MusicTeacher;
 
 public class MusicTeacherDAO
 {
-	 static Connection con = DAO.getDAO();
+	 static Connection con = DAO.getDAO(); // Conection cannot be at class level. 
+	
 
 	public static int save(MusicTeacher mt)
 	{
@@ -13,10 +14,10 @@ public class MusicTeacherDAO
 			
 	try
 	{
-		
-		String sql = "INSERT INTO music_school_teacher values(?,?,?,?,?,?,?,?)";
+		// Get the connection here and close it in finally 
+		String sql = "INSERT INTO music_school_teacher values(?,?,?,?,?,?,?,?)"; // get it outside. as Final String
 		PreparedStatement ps = con.prepareStatement(sql);
-		int i = addNewID();
+		int i = addNewID(); // addNewId() supressed exceptions, so code doesnt know wheather it received a new ID
 		ps.setInt(1,i );
 		ps.setString(2,mt.getFname() );
 		ps.setString(3,mt.getLname() );
@@ -32,10 +33,11 @@ public class MusicTeacherDAO
 	catch(Exception e)
 	{
 		e.printStackTrace();
+		// Never supress any exception in inner layers
 	}  
 	    return status; 
 	}
-	
+	// Can we just use autoincrement at Table Level. Please try that.
 	public static int addNewID() {  
 
 		int id=0;
@@ -43,7 +45,7 @@ public class MusicTeacherDAO
 		         try 
 		         {  
 		        	   
-
+				
 		               String sql = "select max(TechId) from music_school_teacher;";  
 
 		                PreparedStatement pst = con.prepareStatement(sql);  
@@ -59,7 +61,7 @@ public class MusicTeacherDAO
 		         } 
 		         catch (Exception ex) 
 		         {  
-
+// handle - as commented in other code.
 		         }  
 		         
 		         return id;
