@@ -6,13 +6,13 @@ public class MusicTeacher
 	
 	// Varaibles are always private
 	// Please don't initialize instance varaibles. 
-	String fname="";
-	String lname="";
-	String musictype="";
-	String yearsofexp="";
-	String email="";
-	String phonenumber="";
-	String altnumber="";
+	private String fname;
+	private String lname;
+	private String musictype;
+	private String yearsofexp;
+	private String email;
+	private String phonenumber;
+	private String altnumber;
 	
 	
 	public String getFname() {
